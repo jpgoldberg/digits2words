@@ -1,3 +1,4 @@
+  #From https://gist.github.com/psychemedia/150cb9901529da58124a 2017-03-08
   #https://github.com/ateucher/useful_code/blob/master/R/numbers2words.r
   numbers2words <- function(x){
     ## Function by John Fox found here: 
@@ -45,7 +46,12 @@
               "ninety") 
     names(tens) <- 2:9 
     x <- round(x)
-    suffixes <- c("thousand", "million", "billion", "trillion")     
+    
+    # Suffixes come from http://www.isthe.com/chongo/tech/math/number/tenpower.html
+    suffixes <- c("thousand", "million", "billion", "trillion",
+    	"quadrillion", "quintillion", "sextillion",
+    	"septillion", "octillion", "nonillion", "decillion",
+    	"undecillion", "duodecillion", "tredecillion", "quattuordecillion")     
     if (length(x) > 1) return(trim(sapply(x, helper)))
     helper(x)
   }
